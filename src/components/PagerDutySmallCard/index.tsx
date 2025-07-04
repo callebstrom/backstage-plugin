@@ -199,16 +199,15 @@ export const PagerDutySmallCard = (props: PagerDutyCardProps) => {
           !readOnly && props.integrationKey ? (
             <div>
               <TriggerIncidentButton
-                compact
                 data-testid="trigger-incident-button"
                 integrationKey={props.integrationKey}
                 entityName={props.name}
                 handleRefresh={handleRefresh}
               />
-              <OpenServiceButton compact serviceUrl={service!.url} />
+              <OpenServiceButton serviceUrl={service!.url} />
             </div>
           ) : (
-            <OpenServiceButton compact serviceUrl={service!.url} />
+            <OpenServiceButton serviceUrl={service!.url} />
           )
         }
       />

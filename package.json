@@ -38,9 +38,11 @@
     "prepare": "husky install",
     "prepack": "backstage-cli package prepack",
     "postpack": "backstage-cli package postpack",
-    "clean": "backstage-cli package clean"
+    "clean": "backstage-cli package clean",
+    "publish:local": "yarn build && yarn pack && tar -xvf pagerduty-backstage-plugin-NPM_PACKAGE_VERSION.tgz"
   },
   "dependencies": {
+    "@backstage/canon": "^0.5.0",
     "@backstage/catalog-model": "^1.5.0",
     "@backstage/core-components": "^0.14.9",
     "@backstage/core-plugin-api": "^1.9.3",
@@ -87,6 +89,7 @@
     "@types/react": "^16.13.1 || ^17.0.0 || ^18.0.0",
     "@types/uuid": "^10.0.0",
     "copyfiles": "^2.4.1",
+    "husky": "^9.1.7",
     "msw": "^1.2.4",
     "react": "^16.13.1 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.13.1 || ^17.0.0 || ^18.0.0",

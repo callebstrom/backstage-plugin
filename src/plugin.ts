@@ -27,6 +27,8 @@ import {
 import { createCardExtension } from '@backstage/plugin-home-react';
 import { HomePagePagerDutyCardProps } from './components/HomePagePagerDutyCard/Content';
 
+import '@backstage/canon/css/styles.css';
+
 export const rootRouteRef = createRouteRef({
   id: 'pagerduty',
 });

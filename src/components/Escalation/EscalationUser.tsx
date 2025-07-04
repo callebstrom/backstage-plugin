@@ -24,10 +24,11 @@ import {
   IconButton,
   Typography,
 } from '@material-ui/core';
-import Avatar from '@material-ui/core/Avatar';
 import { PagerDutyUser } from '@pagerduty/backstage-plugin-common';
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { BackstageTheme } from '@backstage/theme';
+
+import { Avatar } from '@backstage/canon';
 
 const useStyles = makeStyles<BackstageTheme>((theme) => ({
   listItemPrimary: {
@@ -94,12 +95,9 @@ export const EscalationUser = ({ user, policyUrl, policyName }: Props) => {
   return (
     <ListItem>
       <ListItemIcon>
-        <Avatar
-          alt={user.name}
-          src={user.avatar_url}
-          className={classes.avatarStyle}
-        />
+        <Avatar size="large" src={user.avatar_url} name={user.name} />
       </ListItemIcon>
+
       <ListItemText
         primary={
           <>

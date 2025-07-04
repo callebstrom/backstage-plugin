@@ -16,10 +16,8 @@
 
 // eslint-disable-next-line @backstage/no-undeclared-imports
 import React from "react";
-import { makeStyles, IconButton } from "@material-ui/core";
-import { BackstageTheme } from "@backstage/theme";
 
-import OpenInBrowser from "@material-ui/icons/OpenInBrowser";
+import { Icon, IconButton } from "@backstage/canon";
 
 type OpenServiceButtonProps = {
   serviceUrl: string;
@@ -27,30 +25,7 @@ type OpenServiceButtonProps = {
 };
 
 /** @public */
-export function OpenServiceButton({ serviceUrl, compact }: OpenServiceButtonProps) {
-  const useStyles = makeStyles<BackstageTheme>((theme) => ({
-    buttonStyle: {
-      color: theme.palette.text.primary,
-      "&:hover": {
-        backgroundColor: "transparent",
-        textDecoration: "underline",
-      },
-    },
-    containerStyle: {
-      fontSize: compact !== true ? "12px" : "10px",
-      width: compact !== true ? "85px" : "70px",
-    },
-    iconStyle: {
-      fontSize: "30px",
-      marginBottom: "-10px",
-    },
-    textStyle: {
-      marginBottom: "-10px",
-    },
-  }));
-
-  const { buttonStyle, containerStyle, iconStyle, textStyle } = useStyles();
-
+export function OpenServiceButton({ serviceUrl }: OpenServiceButtonProps) {
   function navigateToService() {
     window.open(serviceUrl, "_blank");
   }
@@ -58,15 +33,10 @@ export function OpenServiceButton({ serviceUrl, compact }: OpenServiceButtonProp
   return (
     <>
       <IconButton
+        icon={<Icon name="external-link" />}
+        variant="secondary"
         aria-label="open-service-in-browser"
-        onClick={navigateToService}
-        className={buttonStyle}
-      >
-        <div className={containerStyle}>
-          <OpenInBrowser className={iconStyle} />
-          <p className={textStyle}>Open service in PagerDuty</p>
-        </div>
-      </IconButton>
+        onClick={navigateToService} />
     </>
   );
 }
